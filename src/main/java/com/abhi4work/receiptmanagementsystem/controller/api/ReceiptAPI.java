@@ -20,10 +20,10 @@ public interface ReceiptAPI
 			@ApiResponse(responseCode = "200", description = "successful operation", content = @Content(schema = @Schema(implementation = Object.class))),
 
 			@ApiResponse(responseCode = "400", description = "Invalid input", content = @Content(schema = @Schema(implementation = Object.class))) })
-	@RequestMapping(value = "/workflow",
+	@RequestMapping(value = "/receipt",
 			produces = { "application/json" },
 			consumes = { "application/json" },
 			method = RequestMethod.POST)
-	ResponseEntity<Object> addWorkflow(
-			@Parameter(in = ParameterIn.DEFAULT, description = "create a new rceipt object in the system", required=true, schema=@Schema()) @RequestBody Object body);
+	ResponseEntity<Object> createReceipt(
+			@Parameter(in = ParameterIn.DEFAULT, description = "create a new receipt object in the system", required=true, schema=@Schema()) @RequestBody Object body);
 }
