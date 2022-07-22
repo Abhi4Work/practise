@@ -1,6 +1,7 @@
 package com.abhi4work.receiptmanagementsystem.controller.api;
 
 import com.abhi4work.receiptmanagementsystem.model.request.ReceiptRequestModel;
+import com.abhi4work.receiptmanagementsystem.model.response.ReceiptResponseModel;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.enums.ParameterIn;
@@ -25,6 +26,6 @@ public interface ReceiptAPI
 			produces = { "application/json" },
 			consumes = { "application/json" },
 			method = RequestMethod.POST)
-	ResponseEntity<ReceiptRequestModel> createReceipt(
+	ResponseEntity<ReceiptResponseModel> createReceipt(
 			@Parameter(in = ParameterIn.DEFAULT, description = "create a new receipt object in the system", required=true, schema=@Schema( implementation = ReceiptRequestModel.class)) @RequestBody ReceiptRequestModel body);
 }
