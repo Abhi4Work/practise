@@ -2,7 +2,7 @@ CREATE DATABASE IF NOT EXISTS receipt_management-system DEFAULT CHARACTER SET ut
 
 DROP TABLE IF EXISTS `receipt`;
 CREATE TABLE `receipt` (
-  `id` bigint(20) NOT NULL,
+  `id` varchar(40) NOT NULL,
   `name` varchar(50) NOT NULL,
   `address` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
