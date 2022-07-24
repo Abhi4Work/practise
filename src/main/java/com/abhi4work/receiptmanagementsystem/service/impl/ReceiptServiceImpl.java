@@ -1,5 +1,7 @@
 package com.abhi4work.receiptmanagementsystem.service.impl;
 
+import com.abhi4work.receiptmanagementsystem.domain.Receipt;
+import com.abhi4work.receiptmanagementsystem.model.response.ReceiptResponseModel;
 import com.abhi4work.receiptmanagementsystem.repository.ReceiptRepository;
 import com.abhi4work.receiptmanagementsystem.service.ReceiptService;
 import org.apache.logging.log4j.LogManager;
@@ -14,4 +16,9 @@ public class ReceiptServiceImpl implements ReceiptService {
 
     @Autowired
     private ReceiptRepository receiptRepository;
+
+    @Override
+    public void createNewReceipt(Receipt receipt) throws Exception{
+            receiptRepository.save(receipt);
+    }
 }

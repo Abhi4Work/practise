@@ -11,7 +11,6 @@ import java.util.Objects;
 @Builder
 @Getter
 @Setter
-
 public class ReceiptModel
 {
 	@JsonProperty(value = "id",access = JsonProperty.Access.READ_ONLY)

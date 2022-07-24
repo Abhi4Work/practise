@@ -5,7 +5,9 @@ import java.util.HashMap;
 public enum CustomResultCodes
 {
 	RECEIPT_REQUEST_VALIDATION_ERROR(1000,ResultCodeType.CLIENT_ERROR,"Mandatory fields missing in request"),
-	RECEIPT_VALIDATION_ERROR(1001,ResultCodeType.SERVER_ERROR,"Mandatory fields missing in request");
+	RECEIPT_VALIDATION_ERROR(1001,ResultCodeType.SERVER_ERROR,"Mandatory fields missing in request"),
+	RECEIPT_CREATION_ERROR(1002,ResultCodeType.SERVER_ERROR,"Error in db while creating receipt"),
+	SUCCESSFUL(1003,ResultCodeType.SUCCESSFUL,"Successfully created a new receipt");
 
 	int code;
 	ResultCodeType description;
@@ -33,16 +35,9 @@ public enum CustomResultCodes
 	public int getCode(){
 		return this.code;
 	}
-
-
-
-
-
-
-
-
-
-
+	public String getReason(){
+		return this.reason;
+	}
 
 	 enum ResultCodeType
 	{

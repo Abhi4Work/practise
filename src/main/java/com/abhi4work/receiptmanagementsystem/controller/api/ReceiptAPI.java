@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
+
 public interface ReceiptAPI
 {
 
@@ -27,5 +29,5 @@ public interface ReceiptAPI
 			consumes = { "application/json" },
 			method = RequestMethod.POST)
 	ResponseEntity<ReceiptResponseModel> createReceipt(
-			@Parameter(in = ParameterIn.DEFAULT, description = "create a new receipt object in the system", required=true, schema=@Schema( implementation = ReceiptRequestModel.class)) @RequestBody ReceiptRequestModel body);
+			@Parameter(in = ParameterIn.DEFAULT, description = "create a new receipt object in the system", required=true, schema=@Schema( implementation = ReceiptRequestModel.class)) @Valid @RequestBody ReceiptRequestModel body);
 }
