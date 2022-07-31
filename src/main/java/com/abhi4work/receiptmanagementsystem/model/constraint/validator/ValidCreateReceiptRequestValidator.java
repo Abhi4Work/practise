@@ -36,6 +36,6 @@ public class ValidCreateReceiptRequestValidator implements ConstraintValidator<V
                 receiptModel.getDescription()!=null &&
                 receiptModel.getTotal()!= Double.NaN &&
                 receiptModel.getCash()!= Double.NaN &&
-                receiptModel.getChange() >= Double.NaN ;
+                receiptModel.getChange() != Double.NaN ;
     }
 }

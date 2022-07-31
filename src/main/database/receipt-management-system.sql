@@ -2,8 +2,8 @@ CREATE DATABASE IF NOT EXISTS receipt_management-system DEFAULT CHARACTER SET ut
 
 DROP TABLE IF EXISTS `receipt`;
 CREATE TABLE `receipt` (
-  `id` varchar(40) NOT NULL,
-  `name` varchar(50) NOT NULL,
+  `id` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
   `address` varchar(50) NOT NULL,
   `type` varchar(50) NOT NULL,
   `description` longtext NOT NULL,
@@ -11,4 +11,4 @@ CREATE TABLE `receipt` (
   `cash` decimal(19,2) DEFAULT NULL,
   `change` decimal(19,2) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=23 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

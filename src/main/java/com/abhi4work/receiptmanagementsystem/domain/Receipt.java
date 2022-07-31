@@ -1,9 +1,6 @@
 package com.abhi4work.receiptmanagementsystem.domain;
 
-import com.abhi4work.receiptmanagementsystem.model.request.ReceiptModel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,8 +10,9 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "receipt")
-@Getter
-@Setter
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 @Builder
 public class Receipt {
 
@@ -30,7 +28,7 @@ public class Receipt {
     @Column(name = "type")
     private String type;
 
-    @Column(name = "description")
+    @Column(name = "description" , columnDefinition = "LONGTEXT")
     private String description;
 
     @Column(name = "total")
@@ -74,6 +72,7 @@ public class Receipt {
         sb.append("    total: ").append(toIndentedString(total)).append("\n");
         sb.append("    cash: ").append(toIndentedString(cash)).append("\n");
         sb.append("    change: ").append(toIndentedString(change)).append("\n");
+        sb.append("    description: ").append(toIndentedString(description)).append("\n");
         sb.append("}");
         return sb.toString();
     }

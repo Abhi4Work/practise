@@ -5,9 +5,9 @@ import com.abhi4work.receiptmanagementsystem.mapper.ReceiptMapper;
 import com.abhi4work.receiptmanagementsystem.model.constraint.ValidateCreateReceiptRequest;
 import com.abhi4work.receiptmanagementsystem.model.request.ReceiptRequestModel;
 import com.abhi4work.receiptmanagementsystem.model.response.ReceiptResponseModel;
-import com.abhi4work.receiptmanagementsystem.repository.ReceiptRepository;
 import com.abhi4work.receiptmanagementsystem.service.ReceiptService;
 import com.abhi4work.receiptmanagementsystem.util.CustomResultCodes;
+import com.abhi4work.receiptmanagementsystem.util.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -33,8 +33,10 @@ public class ReceiptRequestHandler
 	public ReceiptResponseModel createANewReceipt(ReceiptRequestModel body)
 	{
 		String id = UUID.randomUUID().toString();
-		Receipt receipt = receiptMapper.toReceiptFromReceiptRequestModel(body,id);
+		Receipt receipt = receiptMapper.toReceiptFromReceiptRequestModel(body.getReceipt(),id);
+		receipt.setDescription(JsonUtil.toJson(body.getReceipt().getDescription()));
 		try {
+
 			receiptService.createNewReceipt(receipt);
 		} catch (Exception exception) {
 			logger.error("Error encountered while trying to create a new receipt \n" + receipt + "/n",exception);
@@ -43,7 +45,6 @@ public class ReceiptRequestHandler
 					.resultMessage(CustomResultCodes.RECEIPT_CREATION_ERROR.getReason())
 					.build();
 		}
-
 		return ReceiptResponseModel.builderBase()
 			.resultCode(CustomResultCodes.SUCCESSFUL.getCode())
 			.resultMessage(CustomResultCodes.SUCCESSFUL.getReason())

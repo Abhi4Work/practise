@@ -1,6 +1,8 @@
 package com.abhi4work.receiptmanagementsystem.model.response;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
