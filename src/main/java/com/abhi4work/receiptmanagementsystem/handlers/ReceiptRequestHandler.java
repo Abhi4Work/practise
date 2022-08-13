@@ -5,6 +5,7 @@ import com.abhi4work.receiptmanagementsystem.mapper.ReceiptMapper;
 import com.abhi4work.receiptmanagementsystem.model.constraint.ValidateCreateReceiptRequest;
 import com.abhi4work.receiptmanagementsystem.model.request.ReceiptRequestModel;
 import com.abhi4work.receiptmanagementsystem.model.response.ReceiptResponseModel;
+import com.abhi4work.receiptmanagementsystem.model.response.ReceiptsResponseModel;
 import com.abhi4work.receiptmanagementsystem.service.ReceiptService;
 import com.abhi4work.receiptmanagementsystem.util.CustomResultCodes;
 import com.abhi4work.receiptmanagementsystem.util.JsonUtil;
@@ -52,5 +53,26 @@ public class ReceiptRequestHandler
 			.resultMessage(CustomResultCodes.SUCCESSFUL.getReason())
 			.receipt(receiptMapper.toReceiptModelFromReceipt(result))
 			.build();
+	}
+
+//	@ValidateCreateReceiptRequest(message = "compulsory request params are invalid")
+	public ReceiptResponseModel updateAnExistingReceipt(ReceiptRequestModel body)
+	{
+		return null;
+	}
+
+	public ReceiptResponseModel fetchAnExistingReceiptById(String id)
+	{
+		return null;
+	}
+
+	public ReceiptsResponseModel fetchAllReceipts(String pageSize, String pageNum,String filter,String sort)
+	{
+		return null;
+	}
+
+	public ReceiptResponseModel deleteAnExistingReceipt(String id)
+	{
+		return null;
 	}
 }

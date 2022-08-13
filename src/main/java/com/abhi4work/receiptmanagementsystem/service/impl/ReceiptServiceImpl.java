@@ -18,7 +18,6 @@ public class ReceiptServiceImpl implements ReceiptService {
     private ReceiptRepository receiptRepository;
 
     @Override
-    @Transactional
     public Receipt createNewReceipt(Receipt receipt) throws Exception{
           return  receiptRepository.save(receipt);
     }
