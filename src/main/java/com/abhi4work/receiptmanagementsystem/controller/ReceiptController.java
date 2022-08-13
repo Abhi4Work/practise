@@ -27,4 +27,9 @@ public class ReceiptController implements ReceiptAPI
 		ReceiptResponseModel receiptResponseModel = requestHandler.createANewReceipt(body);
 		return ResponseEntity.ok(receiptResponseModel);
 	}
+
+	@Override
+	public String home() {
+		return "This is Foogle Home";
+	}
 }

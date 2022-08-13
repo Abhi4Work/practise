@@ -35,19 +35,22 @@ public class ReceiptRequestHandler
 		String id = UUID.randomUUID().toString();
 		Receipt receipt = receiptMapper.toReceiptFromReceiptRequestModel(body.getReceipt(),id);
 		receipt.setDescription(JsonUtil.toJson(body.getReceipt().getDescription()));
+		Receipt result = null;
 		try {
 
-			receiptService.createNewReceipt(receipt);
+			result = receiptService.createNewReceipt(receipt);
 		} catch (Exception exception) {
 			logger.error("Error encountered while trying to create a new receipt \n" + receipt + "/n",exception);
 			return ReceiptResponseModel.builderBase()
 					.resultCode(CustomResultCodes.RECEIPT_CREATION_ERROR.getCode())
 					.resultMessage(CustomResultCodes.RECEIPT_CREATION_ERROR.getReason())
+					.receipt(receiptMapper.toReceiptModelFromReceipt(result))
 					.build();
 		}
 		return ReceiptResponseModel.builderBase()
 			.resultCode(CustomResultCodes.SUCCESSFUL.getCode())
 			.resultMessage(CustomResultCodes.SUCCESSFUL.getReason())
+			.receipt(receiptMapper.toReceiptModelFromReceipt(result))
 			.build();
 	}
 }

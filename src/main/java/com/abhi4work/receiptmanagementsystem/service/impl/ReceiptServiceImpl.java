@@ -7,6 +7,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ReceiptServiceImpl implements ReceiptService {
@@ -17,7 +18,8 @@ public class ReceiptServiceImpl implements ReceiptService {
     private ReceiptRepository receiptRepository;
 
     @Override
-    public void createNewReceipt(Receipt receipt) throws Exception{
-            receiptRepository.save(receipt);
+    @Transactional
+    public Receipt createNewReceipt(Receipt receipt) throws Exception{
+          return  receiptRepository.save(receipt);
     }
 }

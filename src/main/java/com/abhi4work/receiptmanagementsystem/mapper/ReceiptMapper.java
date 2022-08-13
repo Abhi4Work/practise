@@ -2,10 +2,11 @@ package com.abhi4work.receiptmanagementsystem.mapper;
 
 import com.abhi4work.receiptmanagementsystem.domain.Receipt;
 import com.abhi4work.receiptmanagementsystem.model.request.ReceiptModel;
+import com.abhi4work.receiptmanagementsystem.util.JsonUtil;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring" , imports = {JsonUtil.class})
 public interface ReceiptMapper {
 
     @Mapping(target = "id" , source = "id")
@@ -17,4 +18,7 @@ public interface ReceiptMapper {
     @Mapping(target = "cash" , source = "requestModel.cash")
     @Mapping(target = "change" , source = "requestModel.change")
     Receipt toReceiptFromReceiptRequestModel(ReceiptModel requestModel, String id);
+
+    @Mapping(target = "description" , expression = "java(JsonUtil.fromJsonStringToPojoList(receipt.getDescription()))")
+    ReceiptModel toReceiptModelFromReceipt(Receipt receipt);
 }

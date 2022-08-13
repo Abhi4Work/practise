@@ -26,4 +26,9 @@ public interface ReceiptAPI
 			method = RequestMethod.POST)
 	ResponseEntity<ReceiptResponseModel> createReceipt(
 			@Parameter(in = ParameterIn.DEFAULT, description = "create a new receipt object in the system", required=true, schema=@Schema( implementation = ReceiptRequestModel.class)) @Valid @RequestBody ReceiptRequestModel body);
+
+	@RequestMapping(value = "/home",
+			produces = { "application/json" },
+			method = RequestMethod.GET)
+	String home();
 }

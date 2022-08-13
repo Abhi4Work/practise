@@ -12,7 +12,11 @@ public enum CustomResultCodes
 	int code;
 	ResultCodeType description;
 	String reason;
-	private static HashMap<Integer,CustomResultCodes> lookupTable = null;
+//	private static HashMap<Integer,CustomResultCodes> lookupTable = null;
+
+	private CustomResultCodes() {
+
+	}
 
 	private CustomResultCodes(int code,ResultCodeType description ,String reason ){
 		this.code = code;
@@ -20,17 +24,17 @@ public enum CustomResultCodes
 		this.reason = reason;
 	}
 
-	static
-	{
-		CustomResultCodes[] arr$ = values();
-		for(CustomResultCodes i$ : arr$){
-			lookupTable.put(i$.code,i$);
-		}
-	}
+//	static
+//	{
+//		CustomResultCodes[] arr$ = values();
+//		for(CustomResultCodes i$ : arr$){
+//			lookupTable.put(i$.code,i$);
+//		}
+//	}
 
-	public CustomResultCodes lookupCustomResultCodes(Integer code){
-		return lookupTable.get(code);
-	}
+//	public CustomResultCodes lookupCustomResultCodes(Integer code){
+//		return lookupTable.get(code);
+//	}
 
 	public int getCode(){
 		return this.code;
