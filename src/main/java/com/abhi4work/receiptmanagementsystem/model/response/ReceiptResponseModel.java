@@ -15,7 +15,7 @@ public class ReceiptResponseModel extends BaseResponse
 	@JsonProperty("receipt")
 	private ReceiptModel receipt = null;
 
-	public ReceiptResponseModel workflow(ReceiptModel receipt) {
+	public ReceiptResponseModel receipt(ReceiptModel receipt) {
 		this.receipt = receipt;
 		return this;
 	}

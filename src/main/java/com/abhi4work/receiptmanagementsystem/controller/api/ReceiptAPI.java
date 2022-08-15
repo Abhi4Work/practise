@@ -48,14 +48,13 @@ public interface ReceiptAPI
 			produces = { "application/json" },
 			method = RequestMethod.GET)
 	ResponseEntity<ReceiptsResponseModel> getAllReceiptsWithCriteria(
-			@Parameter(in = ParameterIn.QUERY, description = "perPage", required=true, schema=@Schema( implementation = String.class)) @RequestParam String pageSize,
-			@Parameter(in = ParameterIn.QUERY, description = "page", required=true, schema=@Schema( implementation = String.class)) @RequestParam String pageNum,
-			@Parameter(in = ParameterIn.QUERY, description = "filter", required=true, schema=@Schema( implementation = String.class)) @RequestParam String filter,
-			@Parameter(in = ParameterIn.QUERY, description = "sort", required=true, schema=@Schema( implementation = String.class)) @RequestParam(defaultValue = "id_desc") String sort);
+			@Parameter(in = ParameterIn.QUERY, description = "perPage", required=true, schema=@Schema( implementation = Integer.class)) @RequestParam(value = "perPage") Integer pageSize,
+			@Parameter(in = ParameterIn.QUERY, description = "page", required=true, schema=@Schema( implementation = Integer.class)) @RequestParam(value = "page") Integer pageNum,
+			@Parameter(in = ParameterIn.QUERY, description = "filter", required=true, schema=@Schema( implementation = String.class)) @RequestParam(value = "filter" , required = false) String filter,
+			@Parameter(in = ParameterIn.QUERY, description = "sort", required=true, schema=@Schema( implementation = String.class)) @RequestParam(value = "sort" , required = false, defaultValue = "id_desc") String sort);
 
-	@RequestMapping(value = "/receipt",
+	@RequestMapping(value = "/receipt/{id}",
 			produces = { "application/json" },
-			consumes = { "application/json" },
 			method = RequestMethod.DELETE)
 	ResponseEntity<ReceiptResponseModel> deleteReceipt(
 			@Parameter(in = ParameterIn.PATH, description = "id of receipt object to delete from the system", required=true, schema=@Schema( implementation = String.class)) @PathVariable String id);

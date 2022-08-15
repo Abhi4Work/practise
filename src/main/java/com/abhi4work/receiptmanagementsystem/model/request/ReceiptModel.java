@@ -1,7 +1,10 @@
 package com.abhi4work.receiptmanagementsystem.model.request;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.List;
 import java.util.Objects;
@@ -12,7 +15,7 @@ import java.util.Objects;
 @NoArgsConstructor
 public class ReceiptModel
 {
-	@JsonProperty(value = "id",access = JsonProperty.Access.READ_ONLY)
+	@JsonProperty(value = "id")
 	private String id;
 	@JsonProperty("name")
 	private String name;

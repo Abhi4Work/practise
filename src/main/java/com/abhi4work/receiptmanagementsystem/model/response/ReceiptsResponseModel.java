@@ -16,14 +16,25 @@ public class ReceiptsResponseModel extends BaseResponse
 {
     @JsonProperty("receipts")
     private List<ReceiptModel> receipts = null;
+    @JsonProperty("metadata")
+    private Metadata metadata;
 
-    public ReceiptsResponseModel workflow(List<ReceiptModel> receipts) {
+    public ReceiptsResponseModel receipts(List<ReceiptModel> receipts) {
         this.receipts = receipts;
         return this;
     }
 
     public void setReceipt(List<ReceiptModel> receipts) {
         this.receipts = receipts;
+    }
+
+    public ReceiptsResponseModel metadata(Metadata metadata) {
+        this.metadata = metadata;
+        return this;
+    }
+
+    public void setMetadata(Metadata metadata) {
+        this.metadata = metadata;
     }
 
     @Override
@@ -57,8 +68,9 @@ public class ReceiptsResponseModel extends BaseResponse
     }
 
     @Builder(builderMethodName = "builderBase")
-    public ReceiptsResponseModel(List<ReceiptModel> receipts, int resultCode, String resultMessage){
+    public ReceiptsResponseModel(List<ReceiptModel> receipts,Metadata metadata, int resultCode, String resultMessage){
         super(resultCode,resultMessage);
         this.receipts = receipts;
+        this.metadata = metadata;
     }
 }

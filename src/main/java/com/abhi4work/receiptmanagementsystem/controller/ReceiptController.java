@@ -52,7 +52,7 @@ public class ReceiptController implements ReceiptAPI
 	}
 
 	@Override
-	public ResponseEntity<ReceiptsResponseModel> getAllReceiptsWithCriteria(String pageSize, String pageNum, String filter, String sort) {
+	public ResponseEntity<ReceiptsResponseModel> getAllReceiptsWithCriteria(Integer pageSize, Integer pageNum, String filter, String sort) {
 		logger.debug("Received new Receipt fetch all Request " );
 		ReceiptsResponseModel receiptsResponseModel = requestHandler.fetchAllReceipts(pageSize,pageNum,filter,sort);
 		return ResponseEntity.ok(receiptsResponseModel);
