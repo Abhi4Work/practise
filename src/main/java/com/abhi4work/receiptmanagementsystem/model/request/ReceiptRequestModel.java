@@ -15,7 +15,7 @@ public class ReceiptRequestModel
 	@JsonProperty("receipt")
 	private ReceiptModel receipt = null;
 
-	public ReceiptRequestModel workflow(ReceiptModel receipt) {
+	public ReceiptRequestModel receiptRequestModel(ReceiptModel receipt) {
 		this.receipt = receipt;
 		return this;
 	}

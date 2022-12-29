@@ -2,17 +2,20 @@ package com.abhi4work.receiptmanagementsystem.model.response;
 
 import com.abhi4work.receiptmanagementsystem.model.request.ReceiptModel;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.NoArgsConstructor;
 
 import java.util.Objects;
 
-@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 public class ReceiptResponseModel extends BaseResponse
 {
 	@JsonProperty("receipt")
 	private ReceiptModel receipt = null;
 
-	public ReceiptResponseModel workflow(ReceiptModel receipt) {
+	public ReceiptResponseModel receipt(ReceiptModel receipt) {
 		this.receipt = receipt;
 		return this;
 	}
@@ -49,5 +52,11 @@ public class ReceiptResponseModel extends BaseResponse
 			return "null";
 		}
 		return o.toString().replace("\n", "\n    ");
+	}
+
+	@Builder(builderMethodName = "builderBase")
+	public ReceiptResponseModel(ReceiptModel receipt, int resultCode, String resultMessage){
+		super(resultCode,resultMessage);
+		this.receipt = receipt;
 	}
 }

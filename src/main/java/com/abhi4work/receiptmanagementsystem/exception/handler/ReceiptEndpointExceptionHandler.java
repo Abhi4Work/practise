@@ -20,7 +20,7 @@ public class ReceiptEndpointExceptionHandler
 	public ResponseEntity<BaseResponse> getBaseResponse(){
 		BaseResponse response = new BaseResponse();
 		response.setResultCode(HttpStatus.NO_CONTENT.value());
-		response.setResultDescription(HttpStatus.NO_CONTENT.getReasonPhrase());
+		response.setResultMessage(HttpStatus.NO_CONTENT.getReasonPhrase());
 		return ResponseEntity.ok(response);
 	}
 
