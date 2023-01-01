@@ -15,31 +15,31 @@ import javax.persistence.Table;
 @NoArgsConstructor
 @Builder
 @Entity
-@Table(name = "receipt" , schema = "receiptmanagementsystem")
+//@Table
 public class Receipt {
 
     @Id
     private String id;
 
-    @Column(name = "name")
+//    @Column(name = "name")
     private String name;
 
-    @Column(name = "address")
+//    @Column(name = "address")
     private String address;
 
-    @Column(name = "type")
+//    @Column(name = "type")
     private String type;
 
-    @Column(name = "description" , columnDefinition = "LONGTEXT")
+//    @Column(name = "description" , columnDefinition = "LONGTEXT")
     private String description;
 
-    @Column(name = "total")
+//    @Column(name = "total")
     private double total;
 
-    @Column(name = "cash")
+//    @Column(name = "cash")
     private double cash;
 
-    @Column(name = "change")
+//    @Column(name = "change")
     private double change;
 
 //    @Override
